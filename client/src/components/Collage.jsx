@@ -7,7 +7,8 @@ import {
   CollageImage,
   SoloResize,
   CollageResize,
-  ParentContainer
+  ParentContainer,
+  CarouselWrapper
 } from "./styles.js";
 
 
@@ -18,14 +19,21 @@ class Collage extends React.Component {
     super(props);
     this.state = {
       houses: [],
-      carouselHouses: []
+      carouselHouses: [],
+      showCarousel: false,
     };
+
+    this.toggleCarousel = this.toggleCarousel.bind(this);
   }
 
   componentDidMount() {
     axios.get("http://localhost:3000/houses").then(res => {
       this.setState({ houses: res.data.slice(0, 5), carouselHouses: res.data.slice(0,10)});
     });
+  }
+
+  toggleCarousel() {
+    this.setState({ showCarousel: true})
   }
 
   renderImages() {
@@ -36,6 +44,7 @@ class Collage extends React.Component {
             <CollageImage>
               <SoloResize
                 key={`$house.id`}
+                onClick={() => this.toggleCarousel()}
                 src={`${header}${this.state.houses[0].url_pathway}`}
               />
             </CollageImage>
@@ -43,21 +52,25 @@ class Collage extends React.Component {
           <CollageContainer>
             <CollageImage>
               <CollageResize
+                onClick={() => this.toggleCarousel()}
                 src={`${header}${this.state.houses[1].url_pathway}`}
               />
             </CollageImage>
             <CollageImage>
               <CollageResize
+                onClick={() => this.toggleCarousel()}
                 src={`${header}${this.state.houses[2].url_pathway}`}
               />
             </CollageImage>
             <CollageImage>
               <CollageResize
+                onClick={() => this.toggleCarousel()}
                 src={`${header}${this.state.houses[3].url_pathway}`}
               />
             </CollageImage>
             <CollageImage>
               <CollageResize
+                onClick={() => this.toggleCarousel()}
                 src={`${header}${this.state.houses[4].url_pathway}`}
               />
             </CollageImage>
@@ -68,11 +81,24 @@ class Collage extends React.Component {
   }
 
   renderCarousel() {
-    return <Carousel caroHouses={this.state.carouselHouses} />;
+    if (this.state.showCarousel) {
+      return (
+        <CarouselWrapper>
+          <Carousel caroHouses={this.state.carouselHouses} />
+        </CarouselWrapper>
+      );
+    } else {
+      return null;
+    }
   }
 
   render() {
-    return <div>{this.renderCarousel()}</div>;
+    return (
+      <div>
+        {this.renderCarousel()}
+        {this.renderImages()}
+      </div>
+    );
   }
 }
 

@@ -34455,8 +34455,11 @@ var Collage = function (_React$Component) {
 
     _this.state = {
       houses: [],
-      carouselHouses: []
+      carouselHouses: [],
+      showCarousel: false
     };
+
+    _this.toggleCarousel = _this.toggleCarousel.bind(_this);
     return _this;
   }
 
@@ -34470,8 +34473,15 @@ var Collage = function (_React$Component) {
       });
     }
   }, {
+    key: "toggleCarousel",
+    value: function toggleCarousel() {
+      this.setState({ showCarousel: true });
+    }
+  }, {
     key: "renderImages",
     value: function renderImages() {
+      var _this3 = this;
+
       return this.state.houses.length > 0 && _react2.default.createElement(
         _styles.ParentContainer,
         null,
@@ -34483,6 +34493,9 @@ var Collage = function (_React$Component) {
             null,
             _react2.default.createElement(_styles.SoloResize, {
               key: "$house.id",
+              onClick: function onClick() {
+                return _this3.toggleCarousel();
+              },
               src: "" + header + this.state.houses[0].url_pathway
             })
           )
@@ -34494,6 +34507,9 @@ var Collage = function (_React$Component) {
             _styles.CollageImage,
             null,
             _react2.default.createElement(_styles.CollageResize, {
+              onClick: function onClick() {
+                return _this3.toggleCarousel();
+              },
               src: "" + header + this.state.houses[1].url_pathway
             })
           ),
@@ -34501,6 +34517,9 @@ var Collage = function (_React$Component) {
             _styles.CollageImage,
             null,
             _react2.default.createElement(_styles.CollageResize, {
+              onClick: function onClick() {
+                return _this3.toggleCarousel();
+              },
               src: "" + header + this.state.houses[2].url_pathway
             })
           ),
@@ -34508,6 +34527,9 @@ var Collage = function (_React$Component) {
             _styles.CollageImage,
             null,
             _react2.default.createElement(_styles.CollageResize, {
+              onClick: function onClick() {
+                return _this3.toggleCarousel();
+              },
               src: "" + header + this.state.houses[3].url_pathway
             })
           ),
@@ -34515,6 +34537,9 @@ var Collage = function (_React$Component) {
             _styles.CollageImage,
             null,
             _react2.default.createElement(_styles.CollageResize, {
+              onClick: function onClick() {
+                return _this3.toggleCarousel();
+              },
               src: "" + header + this.state.houses[4].url_pathway
             })
           )
@@ -34524,7 +34549,15 @@ var Collage = function (_React$Component) {
   }, {
     key: "renderCarousel",
     value: function renderCarousel() {
-      return _react2.default.createElement(_Carousel2.default, { caroHouses: this.state.carouselHouses });
+      if (this.state.showCarousel) {
+        return _react2.default.createElement(
+          _styles.CarouselWrapper,
+          null,
+          _react2.default.createElement(_Carousel2.default, { caroHouses: this.state.carouselHouses })
+        );
+      } else {
+        return null;
+      }
     }
   }, {
     key: "render",
@@ -34532,7 +34565,8 @@ var Collage = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        this.renderCarousel()
+        this.renderCarousel(),
+        this.renderImages()
       );
     }
   }]);
@@ -34663,16 +34697,20 @@ var unitlessKeys = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CaroImage = exports.SlideContainer = exports.MetaContainer = exports.CarouselContainer = exports.CollageResize = exports.SoloResize = exports.CollageImage = exports.SoloContainer = exports.CollageContainer = exports.ParentContainer = undefined;
+exports.CarouselWrapper = exports.SlideWrapper = exports.ButtonStyler = exports.CaroImage = exports.SlideContainer = exports.MetaContainer = exports.CarouselContainer = exports.CollageResize = exports.SoloResize = exports.CollageImage = exports.SoloContainer = exports.CollageContainer = exports.ParentContainer = undefined;
 
 var _templateObject = _taggedTemplateLiteral(['\n  display: flex;\n  flex-direction:row;\n  flex: 1;\n  cursor: pointer;\n'], ['\n  display: flex;\n  flex-direction:row;\n  flex: 1;\n  cursor: pointer;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-template-columns: auto auto;\n  background-color: black;\n  width: 100%;\n  flex: 1;\n'], ['\n  display: grid;\n  grid-template-columns: auto auto;\n  background-color: black;\n  width: 100%;\n  flex: 1;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-template-columns: gird-row-start;\n  background-color: black;\n  width: 50%;\n  flex: 1;\n'], ['\n  display: grid;\n  grid-template-columns: gird-row-start;\n  background-color: black;\n  width: 50%;\n  flex: 1;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-template-columns: auto auto;\n  background-color: black;\n  width: 50%;\n  flex: 0.5;\n'], ['\n  display: grid;\n  grid-template-columns: auto auto;\n  background-color: black;\n  width: 50%;\n  flex: 0.5;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-template-columns: gird-row-start;\n  background-color: black;\n  width: 50%;\n  flex: 0.5;\n'], ['\n  display: grid;\n  grid-template-columns: gird-row-start;\n  background-color: black;\n  width: 50%;\n  flex: 0.5;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n  border: 1px solid rgba(0, 0, 0, 0.8);\n  top: 0px;\n  opacity: 1;\n  &:hover {\n    -ms-transform: scale(1.05);\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    transition-timing-function: ease-in-out;\n    transition: 0.5s;\n    opacity: 0.7;\n  }\n'], ['\n  border: 1px solid rgba(0, 0, 0, 0.8);\n  top: 0px;\n  opacity: 1;\n  &:hover {\n    -ms-transform: scale(1.05);\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    transition-timing-function: ease-in-out;\n    transition: 0.5s;\n    opacity: 0.7;\n  }\n']),
     _templateObject5 = _taggedTemplateLiteral(['\nheight: 100%;\nwidth: 100%;\n'], ['\nheight: 100%;\nwidth: 100%;\n']),
     _templateObject6 = _taggedTemplateLiteral(['\nheight: 370px;\nwidth: 480px;\n'], ['\nheight: 370px;\nwidth: 480px;\n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n\n'], ['\n\n']),
-    _templateObject8 = _taggedTemplateLiteral(['\nmax-height: 75%;\nmax-width: 75%;\n'], ['\nmax-height: 75%;\nmax-width: 75%;\n']);
+    _templateObject7 = _taggedTemplateLiteral(['\n  background-color: white;\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n'], ['\n  background-color: white;\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n']),
+    _templateObject8 = _taggedTemplateLiteral(['\n\n'], ['\n\n']),
+    _templateObject9 = _taggedTemplateLiteral(['\ncursor: pointer;\ndisplay: block;\nmax-height: 75%;\nmax-width: 75%;\nborder-radius: 3%;\ntransition: opacity 150ms ease-in-out 0s, transform 150ms ease-in-out 0s;\n'], ['\ncursor: pointer;\ndisplay: block;\nmax-height: 75%;\nmax-width: 75%;\nborder-radius: 3%;\ntransition: opacity 150ms ease-in-out 0s, transform 150ms ease-in-out 0s;\n']),
+    _templateObject10 = _taggedTemplateLiteral(['\ncursor:pointer;\nfont-size: 40px;\nbackground-color: white;\n'], ['\ncursor:pointer;\nfont-size: 40px;\nbackground-color: white;\n']),
+    _templateObject11 = _taggedTemplateLiteral(['\n  max-width: 25%;\n  max-height: 25%;\n'], ['\n  max-width: 25%;\n  max-height: 25%;\n']),
+    _templateObject12 = _taggedTemplateLiteral(['\n  position: absolute;\n  z-index: 10;\n'], ['\n  position: absolute;\n  z-index: 10;\n']);
 
 var _styledComponents = __webpack_require__(58);
 
@@ -34692,10 +34730,16 @@ var CollageImage = exports.CollageImage = _styledComponents2.default.div(_templa
 var SoloResize = exports.SoloResize = _styledComponents2.default.img(_templateObject5);
 var CollageResize = exports.CollageResize = _styledComponents2.default.img(_templateObject6);
 var CarouselContainer = exports.CarouselContainer = _styledComponents2.default.div(_templateObject7);
-var MetaContainer = exports.MetaContainer = _styledComponents2.default.div(_templateObject7);
+var MetaContainer = exports.MetaContainer = _styledComponents2.default.div(_templateObject8);
 
-var SlideContainer = exports.SlideContainer = _styledComponents2.default.div(_templateObject7);
-var CaroImage = exports.CaroImage = _styledComponents2.default.img(_templateObject8);
+var SlideContainer = exports.SlideContainer = _styledComponents2.default.div(_templateObject8);
+
+var CaroImage = exports.CaroImage = _styledComponents2.default.img(_templateObject9);
+var ButtonStyler = exports.ButtonStyler = _styledComponents2.default.button(_templateObject10);
+
+var SlideWrapper = exports.SlideWrapper = _styledComponents2.default.img(_templateObject11);
+
+var CarouselWrapper = exports.CarouselWrapper = _styledComponents2.default.div(_templateObject12);
 
 /***/ }),
 /* 50 */
@@ -38653,6 +38697,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Slide = __webpack_require__(62);
+
+var _Slide2 = _interopRequireDefault(_Slide);
+
 var _styles = __webpack_require__(49);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -38674,10 +38722,13 @@ var Carousel = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).call(this, props));
 
     _this.state = {
-      currentImage: 0
+      currentImage: 0,
+      translateValue: 0
     };
     _this.forwardClick = _this.forwardClick.bind(_this);
     _this.backwardClick = _this.backwardClick.bind(_this);
+    _this.isPhotoVerified = _this.isPhotoVerified.bind(_this);
+    _this.renderSlide = _this.renderSlide.bind(_this);
     return _this;
   }
 
@@ -38707,26 +38758,63 @@ var Carousel = function (_React$Component) {
       });
     }
   }, {
+    key: "isPhotoVerified",
+    value: function isPhotoVerified() {
+      if (this.props.caroHouses.length > 0) {
+        if (this.props.caroHouses[this.state.currentImage].verified === 1) {
+          return 'Photo Verified by Airbnb';
+        } else {
+          return '';
+        }
+      } else {
+        return '';
+      }
+    }
+  }, {
+    key: "renderSlide",
+    value: function renderSlide() {
+      return this.props.caroHouses && this.props.caroHouses.map(function (image, idx) {
+        return _react2.default.createElement(_Slide2.default, { key: idx, image: "" + header + image.url_pathway });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var currentCaroHouses = this.props.caroHouses.length > 0 ? this.props.caroHouses[this.state.currentImage].url_pathway : '';
-
+      var currentCaroInfo = this.props.caroHouses.length > 0 ? this.props.caroHouses[this.state.currentImage].caption : '';
       return _react2.default.createElement(
         _styles.CarouselContainer,
         null,
         _react2.default.createElement(
-          "button",
+          _styles.ButtonStyler,
           { onClick: this.backwardClick },
-          "prev"
+          "\u2039"
         ),
         _react2.default.createElement(_styles.CaroImage, { src: "" + header + currentCaroHouses }),
         _react2.default.createElement(
-          "button",
+          _styles.ButtonStyler,
           { onClick: this.forwardClick },
-          "next"
+          "\u203A"
         ),
-        _react2.default.createElement(_styles.SlideContainer, null),
-        _react2.default.createElement(_styles.MetaContainer, null)
+        _react2.default.createElement(
+          _styles.SlideContainer,
+          null,
+          this.renderSlide()
+        ),
+        _react2.default.createElement(
+          _styles.MetaContainer,
+          null,
+          _react2.default.createElement(
+            "p",
+            null,
+            currentCaroInfo
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            this.isPhotoVerified()
+          )
+        )
       );
     }
   }]);
@@ -38735,6 +38823,32 @@ var Carousel = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Carousel;
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = __webpack_require__(49);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Slide = function Slide(props) {
+
+  return _react2.default.createElement(_styles.SlideWrapper, { src: '' + props.image });
+};
+
+exports.default = Slide;
 
 /***/ })
 /******/ ]);

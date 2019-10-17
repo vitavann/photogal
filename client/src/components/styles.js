@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 export const ParentContainer = styled.div`
   display: flex;
@@ -11,8 +11,8 @@ export const CollageContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   background-color: black;
-  width: 100%;
-  flex: 1;
+  width: 50%;
+  flex: 0.5;
 `;
 
 export const SoloContainer = styled.div`
@@ -20,7 +20,7 @@ export const SoloContainer = styled.div`
   grid-template-columns: gird-row-start;
   background-color: black;
   width: 50%;
-  flex: 1;
+  flex: 0.5;
 `
 
 export const CollageImage = styled.div`
@@ -45,7 +45,10 @@ height: 370px;
 width: 480px;
 `
 export const CarouselContainer = styled.div`
-
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 `
 export const MetaContainer = styled.div`
 
@@ -54,7 +57,27 @@ export const MetaContainer = styled.div`
 export const SlideContainer = styled.div`
 
 `
+
 export const CaroImage = styled.img`
+cursor: pointer;
+display: block;
 max-height: 75%;
 max-width: 75%;
+border-radius: 3%;
+transition: opacity 150ms ease-in-out 0s, transform 150ms ease-in-out 0s;
+`
+export const ButtonStyler = styled.button`
+cursor:pointer;
+font-size: 40px;
+background-color: white;
+`
+
+export const SlideWrapper = styled.img`
+  max-width: 25%;
+  max-height: 25%;
+`;
+
+export const CarouselWrapper = styled.div`
+  position: absolute;
+  z-index: 10;
 `
