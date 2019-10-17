@@ -7,7 +7,7 @@ const db = require("../database/index.js");
 const dbMethods = require("../database/dbMethods.js");
 
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname, '../client/dist')));
 app.get("/houses", (req, res) =>
   dbMethods.getAllhouses(req,res));
 
