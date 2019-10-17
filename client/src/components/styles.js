@@ -44,3 +44,17 @@ export const CollageResize = styled.img`
 height: 370px;
 width: 480px;
 `
+export const CarouselContainer = styled.div`
+
+`
+export const MetaContainer = styled.div`
+
+`
+
+export const SlideContainer = styled.div`
+
+`
+export const CaroImage = styled.img`
+max-height: 75%;
+max-width: 75%;
+`

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Carousel from './Carousel.jsx';
 import {
   CollageContainer,
   SoloContainer,
@@ -9,21 +10,21 @@ import {
   ParentContainer
 } from "./styles.js";
 
+
 var header = "https://housesvitavann.s3-us-west-1.amazonaws.com/";
 
 class Collage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      houses: []
+      houses: [],
+      carouselHouses: []
     };
   }
+
   componentDidMount() {
     axios.get("http://localhost:3000/houses").then(res => {
-      console.log(this.state.houses);
-      this.setState({ houses: res.data.slice(0, 5) });
-      console.log(this.state.houses);
-      console.log(this.state.houses[0]);
+      this.setState({ houses: res.data.slice(0, 5), carouselHouses: res.data.slice(0,10)});
     });
   }
 
@@ -66,8 +67,12 @@ class Collage extends React.Component {
     );
   }
 
+  renderCarousel() {
+    return <Carousel caroHouses={this.state.carouselHouses} />;
+  }
+
   render() {
-    return <div>{this.renderImages()}</div>;
+    return <div>{this.renderCarousel()}</div>;
   }
 }
 
