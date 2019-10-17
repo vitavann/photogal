@@ -1,19 +1,14 @@
-import React from 'react';
+import React from "react";
+import axios from "axios";
+import Collage from './Collage.jsx'
 
+var header = "https://housesvitavann.s3-us-west-1.amazonaws.com/"
 
 class App extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-
-      }
-    }
     render () {
         return (
             <div>
-                <div>
-                    Hello
-                </div>
+              <Collage />
             </div>
         )
     }
