@@ -34660,11 +34660,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CollageResize = exports.SoloResize = exports.CollageImage = exports.SoloContainer = exports.CollageContainer = exports.ParentContainer = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\ndisplay: flex;\nflex-direction:row;\nflex: 1;\n'], ['\ndisplay: flex;\nflex-direction:row;\nflex: 1;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-template-columns: auto auto\n  background-color: grey;\n  padding: 1px;\n  width: 50%;\n  height: 100%;\n  flex: 1;\n'], ['\n  display: grid;\n  grid-template-columns: auto auto\n  background-color: grey;\n  padding: 1px;\n  width: 50%;\n  height: 100%;\n  flex: 1;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\ndisplay: grid;\ngrid-template-columns: gird-row-start\nbackground-color: grey;\npadding: 1px;\nwidth: 50%;\nheight: 100%;\nmargin: auto;\nflex: 1;\n'], ['\ndisplay: grid;\ngrid-template-columns: gird-row-start\nbackground-color: grey;\npadding: 1px;\nwidth: 50%;\nheight: 100%;\nmargin: auto;\nflex: 1;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n  border: 1px solid rgba(0, 0, 0, 0.8);\n'], ['\n  border: 1px solid rgba(0, 0, 0, 0.8);\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\nheight: 740px;\nwidth: 960px;\n'], ['\nheight: 740px;\nwidth: 960px;\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  display: flex;\n  flex-direction:row;\n  flex: 1;\n  cursor: pointer;\n'], ['\n  display: flex;\n  flex-direction:row;\n  flex: 1;\n  cursor: pointer;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-template-columns: auto auto;\n  background-color: black;\n  width: 100%;\n  flex: 1;\n'], ['\n  display: grid;\n  grid-template-columns: auto auto;\n  background-color: black;\n  width: 100%;\n  flex: 1;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-template-columns: gird-row-start;\n  background-color: black;\n  width: 50%;\n  flex: 1;\n'], ['\n  display: grid;\n  grid-template-columns: gird-row-start;\n  background-color: black;\n  width: 50%;\n  flex: 1;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  border: 1px solid rgba(0, 0, 0, 0.8);\n  top: 0px;\n  opacity: 1;\n  &:hover {\n    -ms-transform: scale(1.05);\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    transition-timing-function: ease-in-out;\n    transition: 0.5s;\n    opacity: 0.7;\n  }\n'], ['\n  border: 1px solid rgba(0, 0, 0, 0.8);\n  top: 0px;\n  opacity: 1;\n  &:hover {\n    -ms-transform: scale(1.05);\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n    transition-timing-function: ease-in-out;\n    transition: 0.5s;\n    opacity: 0.7;\n  }\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\nheight: 100%;\nwidth: 100%;\n'], ['\nheight: 100%;\nwidth: 100%;\n']),
     _templateObject6 = _taggedTemplateLiteral(['\nheight: 370px;\nwidth: 480px;\n'], ['\nheight: 370px;\nwidth: 480px;\n']);
 
 var _styledComponents = __webpack_require__(58);
