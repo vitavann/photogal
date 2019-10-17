@@ -4,6 +4,13 @@ const port = 3000;
 const path = require("path");
 const bodyParser = require("body-parser");
 const db = require("../database/index.js");
+const dbMethods = require("../database/dbMethods.js");
+
+app.use(bodyParser.json());
+
+app.get("/houses", (req, res) =>
+  dbMethods.getAllhouses(req,res));
+
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
